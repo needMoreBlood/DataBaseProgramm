@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SQLite;
+using System.IO;
+using System.Data.SqlClient;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace bds
 {
@@ -19,11 +21,21 @@ namespace bds
             InitializeComponent();
 
         }
+        Encoding encoding = Encoding.GetEncoding("UTF-8");
 
         DataTable dTableTest30001 = new DataTable();
-        DataTable dTableTest30002 = new DataTable();
+        DataTable dTableTest3 = new DataTable();
 
         SQLiteConnection connection = new SQLiteConnection();
+        SQLiteConnection connection1 = new SQLiteConnection();
+
+        //string From = @"D:\Пркатика\m_db (Desktop-oi3poc0)\2.2021\28.2.2021.db";
+        //string To = @"D:\Пркатика\To\2.2021\28.2.2021.sqlite3";
+        //int Time = 10;
+        string NAME;
+        string OPERATOR;
+        int id = 0;
+
 
         private SQLiteCommand Test3000Cmd;
 
@@ -34,11 +46,123 @@ namespace bds
         bool triger = false;
         int time, ntime;
         string nameD, nameM;
-        string nameOldD, nameOldM;
         string From, To;
-        int countRows = 0;
         int timerTime = 7;//задать время, на котором будет происходить копирование
-        SQLiteCommand m_sqlCmd = new SQLiteCommand();
+
+        void fillingTableWithCorrectDate()
+        {
+            connection = new SQLiteConnection(@"Data Source=" + From + ";" + "Version =3; ReadOnly=True;");
+            string command3 = "select * from test where id>" + id;
+            SQLiteCommand sqlCommand1 = connection.CreateCommand();
+            connection.Open();
+            SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(command3, connection);
+            adapter3.Fill(dTableTest3);
+
+
+
+            for (int i = 0; i < dTableTest3.Rows.Count; i++)
+            {
+                DateTime dateTime = Convert.ToDateTime(dTableTest3.Rows[i][1].ToString());
+                var date = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                dTableTest3.Rows[i][1] = date.ToString();
+                id++;
+
+            }
+            connection.Close();
+        }
+
+        void Test3000Up()
+        {
+            if (!File.Exists(To))
+            {
+                richTextBox1.Text += "Ошибка! База Test3000.sqlite3 сервера не существует или отсутствует по указанному пути" + "\n";
+            }
+            if (File.Exists(To))//(destPath))//ищект максимальную дату в локальной базе(Test3000ServerBasePath), подключается к серверу
+                                //заполняет какую то новую базу dTableTest30001 
+                                //вставляет только максимальную дату
+            {
+                connection = new SQLiteConnection(@"Data Source=" + To + ";" + "Version =3; ReadOnly=True;");
+                connection.Open();
+                string command1 = "SELECT  MAX (TIMESTAMP) FROM 'TEST1'";
+                SQLiteCommand sqlCommand = new SQLiteCommand(command1);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command1, connection);
+                richTextBox1.Text += "Запрос на поиск последней записи выполнен: \n";
+                adapter.Fill(dTableTest30001);
+                richTextBox1.Text += "Последняя запись от " + dTableTest30001.Rows[0][0] + " \n";
+
+                connection.Close();
+
+
+            }
+
+            if (!File.Exists(From))
+            {
+                richTextBox1.Text += "Ошибка! База Test3000.sqlite3 (исходная) не существует или отсутствует по указанному пути" + "\n";
+            }
+
+            if (File.Exists(From))
+            {
+                fillingTableWithCorrectDate();
+
+            }
+
+            Test3000Cmd = new SQLiteCommand();
+            connection = new SQLiteConnection(string.Format("Data Source={0};", To));
+            if (connection.State != ConnectionState.Open)
+            {
+                connection = new SQLiteConnection("Data Source=" + To + ";Version=3;");
+                connection.Open();
+                richTextBox1.Text += "Серверная база для записи Test3000.sqlite3 успешно открыта \n";
+                Test3000Cmd.Connection = connection;
+                var columns_count = dTableTest3.Rows.Count;
+            }
+            try
+            {
+                richTextBox1.Text += "started copuing" + "\n";
+                for (int i = 0; i < dTableTest3.Rows.Count; i++)//из dTableTest30002 бд вставлет все столбцы в основную
+                {
+
+                    var result = dTableTest3.Rows[i][1].ToString().CompareTo(dTableTest30001.Rows[0][0].ToString());
+                    if (result > 0)
+                    {
+                        try
+                        {
+                            var test = dTableTest3.Rows[i][3].ToString();
+                            byte[] ByteName = (byte[])dTableTest3.Rows[i][3];
+                            NAME = Encoding.GetEncoding(1251).GetString(ByteName);
+                            byte[] ByteOperator = (byte[])dTableTest3.Rows[i][2];
+                            OPERATOR = Encoding.GetEncoding(1251).GetString(ByteOperator);
+                        }
+                        catch
+                        {
+                            byte[] ByteName = (byte[])dTableTest3.Rows[i][3];
+                            NAME = Encoding.GetEncoding(1251).GetString(ByteName);
+                            OPERATOR = dTableTest3.Rows[i][2].ToString();
+                        }
+                        Test3000Cmd.CommandText = "INSERT INTO 'TEST1' ( ID, TIMESTAMP, OPERATOR, NAME, MAINCOUNTER, RESULT, END, MARK) VALUES(@ID, @TIMESTAMP, @OPERATOR, @NAME, @MAINCOUNTER, @RESULT, @END, @MARK )";
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@ID", null));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@TIMESTAMP", dTableTest3.Rows[i][1]));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@OPERATOR", OPERATOR));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@NAME", NAME));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@MAINCOUNTER", dTableTest3.Rows[i][4]));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@RESULT", dTableTest3.Rows[i][5]));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@END", null));
+                        Test3000Cmd.Parameters.Add(new SQLiteParameter("@MARK", null));
+                        Test3000Cmd.ExecuteNonQuery();
+                    }
+
+
+                }
+                richTextBox1.Text += "Базы Test3000.sqlite3 полностью синхронизированы в " + DateTime.Now + "\n";
+                richTextBox1.Text += "\n";
+            }
+            catch (SQLiteException ex)
+            {
+                richTextBox1.Text += "Ошибка синхронизации баз Test3000.sqlite3 " + ex.Message + DateTime.Now + "\n";
+            }
+            connection.Close();
+        }
+
 
         private void buttonFrom_Click(object sender, EventArgs e)
         {
@@ -136,78 +260,6 @@ namespace bds
             }
         }
 
-        void Test3000Up()
-        {
-            if (!File.Exists(To))
-            {
-                richTextBox1.Text += "Ошибка! База Test3000.sqlite3 сервера не существует или отсутствует по указанному пути" + "\n";
-            }
-            if (File.Exists(To))//(destPath))//ищект максимальную дату в локальной базе(Test3000ServerBasePath), подключается к серверу
-                                //заполняет какую то новую базу dTableTest30001 
-                                //SQLiteDataAdapter???
-                                //вставляет только максимальную дату
-            {
-                connection = new SQLiteConnection(@"Data Source=" + To + ";" + "Version =3; ReadOnly=True;");
-                connection.Open();
-                string command1 = "SELECT  MAX (TIMESTAMP) FROM 'TEST'";
-                SQLiteCommand sqlCommand = new SQLiteCommand(command1);                
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command1, connection);
-                richTextBox1.Text += "Запрос на поиск последней записи выполнен: \n";
-                adapter.Fill(dTableTest30001);
-                richTextBox1.Text += dTableTest30001.Rows[0][0] + " \n";
-                connection.Close();
-                                
-
-            }
-            if (!File.Exists(From))
-            {
-                richTextBox1.Text += "Ошибка! База Test3000.sqlite3 (исходная) не существует или отсутствует по указанному пути" + "\n";
-            }
-            if (File.Exists(From))//(startPath))//проверяет надичие основной бд
-                                                      //выбирает данные, у которых дата больше последней даты из dTableTest30001
-                                                      //копирует эти данные в dTableTest30002
-                                                      //
-            {
-                richTextBox1.Text += "Есть подключение к основной базе Test3000.sqlite3" + "\n";
-                connection = new SQLiteConnection(@"Data Source=" + From + ";" + "Version =3; ReadOnly=True;");
-                string command2 = "SELECT  * FROM 'TEST' WHERE TIMESTAMP > '" + dTableTest30001.Rows[0][0] + "'";
-                SQLiteCommand sqlCommand = connection.CreateCommand();
-                connection.Open();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command2, connection);
-                richTextBox1.Text += "Запрос на поиск расхождений в базах Test3000.sqlite3 выполнен \n";
-                adapter.Fill(dTableTest30002);
-                richTextBox1.Text += "Найдено новых строк: " + dTableTest30002.Rows.Count + "\n";/////////
-                connection.Close();
-            }
-
-            Test3000Cmd = new SQLiteCommand();
-            connection = new SQLiteConnection(string.Format("Data Source={0};", To));
-            if (connection.State != ConnectionState.Open)
-            {
-                connection = new SQLiteConnection("Data Source=" + To + ";Version=3;");
-                connection.Open();
-                richTextBox1.Text += "Серверная база для записи Test3000.sqlite3 успешно открыта \n";
-                Test3000Cmd.Connection = connection;
-            }
-            try
-            {
-                for (int i = 0; i < dTableTest30002.Rows.Count; i++)//из dTableTest30002 бд вставлет все столбцы в основную
-                {
-                    Test3000Cmd.CommandText = "INSERT INTO 'TEST' (TIMESTAMP, OPERATOR, NAME, MAINCOUNTER, RESULT, END, MARK) VALUES('"
-                    + dTableTest30002.Rows[i][0] + "','" + dTableTest30002.Rows[i][1] + "','" + dTableTest30002.Rows[i][2] + "','" + dTableTest30002.Rows[i][3] + "','" + dTableTest30002.Rows[i][4] + "','" + dTableTest30002.Rows[i][5] +
-                    "','" + null + "','" + null + "')" + "\n";
-                    Test3000Cmd.ExecuteNonQuery();
-                }
-                richTextBox1.Text += "Базы Test3000.sqlite3 полностью синхронизированы в " + DateTime.Now + "\n";
-                richTextBox1.Text += "\n";
-            }
-            catch (SQLiteException ex)
-            {
-                richTextBox1.Text += "Ошибка синхронизации баз Test3000.sqlite3 " + ex.Message + DateTime.Now + "\n";
-            }
-            connection.Close();
-        }
-
         void Path()//меняет формат времени, указывает путь
         {
             DateTime YYMMDD = DateTime.Now;
@@ -235,9 +287,8 @@ namespace bds
              /////////////////////////////////////                                                                                                                                                                                                   /////////////////////////
             ///какое должно быть расширение? sqlite3 или db???????????????
             //////////////////////////////
-            textBox2.Text = destPath + @"\" + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".sqlite3";
-            //textBox2.Text = destPath + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".db";
-
+            textBox2.Text = destPath + @"\" + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".db";
+            
             From = textBox1.Text;//файл источник
             To = textBox2.Text;//файл назначения
         }
