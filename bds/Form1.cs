@@ -119,7 +119,7 @@ namespace bds
             try
             {
                 richTextBox1.Text += "started copuing" + "\n";
-                for (int i = 0; i < dTableTest3.Rows.Count; i++)//из dTableTest30002 бд вставлет все столбцы в основную
+                for (int i = 0; i < dTableTest3.Rows.Count; i++)//из dTableTest3 бд вставлет все столбцы в основную
                 {
 
                     var result = dTableTest3.Rows[i][1].ToString().CompareTo(dTableTest30001.Rows[0][0].ToString());
@@ -281,12 +281,8 @@ namespace bds
                 nameD = DateTime.Parse(YYMMDD.ToString()).ToString("dd");
             }
 
-
             textBox1.Text = startPath + @"\" + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".db";//ищет базу данных этой даты - указывает путь
-                                                                                                                                                                                                                // textBox1.Text = startPath + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".db";
-             /////////////////////////////////////                                                                                                                                                                                                   /////////////////////////
-            ///какое должно быть расширение? sqlite3 или db???????????????
-            //////////////////////////////
+                                                                                                                                                                                                                
             textBox2.Text = destPath + @"\" + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + @"\" + nameD + "." + nameM + "." + DateTime.Parse(YYMMDD.ToString()).ToString("yyyy") + ".db";
             
             From = textBox1.Text;//файл источник
