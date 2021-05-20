@@ -1,0 +1,76 @@
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe.config
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.pdb
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csprojAssemblyReference.cache
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Form1.resources
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Properties.Resources.resources
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.GenerateResource.cache
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CoreCompileInputs.cache
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.exe
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.pdb
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.dll
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.dll
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.xml
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.xml
+C:\Users\a_haritonov\Desktop\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CopyComplete
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe.config
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.pdb
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.dll
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.dll
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.xml
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.xml
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csprojAssemblyReference.cache
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Form1.resources
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Properties.Resources.resources
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.GenerateResource.cache
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CoreCompileInputs.cache
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CopyComplete
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.pdb
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe.config
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.pdb
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.dll
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.dll
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.xml
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.xml
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csprojAssemblyReference.cache
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Form1.resources
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Properties.Resources.resources
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.GenerateResource.cache
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CoreCompileInputs.cache
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CopyComplete
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом — копия (4)\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.pdb
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe.config
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\TestBaseCreate.pdb
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.dll
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.dll
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.xml
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\bin\Debug\System.Data.SQLite.xml
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csprojAssemblyReference.cache
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Form1.resources
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.Properties.Resources.resources
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.GenerateResource.cache
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CoreCompileInputs.cache
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.csproj.CopyComplete
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.exe
+D:\Пркатика\диплом копия 4\TestBaseCreate\TestBaseCreate\obj\Debug\TestBaseCreate.pdb
